@@ -1,0 +1,131 @@
+*{
+  margin: 0;
+}
+
+.editor_main{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.editor_left{
+  height: 100vh;
+  width: 20%;
+  border: solid black;
+}
+
+.editor_right{
+  height: 100vh;
+  width: 80%;
+  border: solid black;
+}
+
+
+.list-group{
+  justify-content: left;
+ };
+
+.App {
+  text-align: center;
+}
+
+.login{
+  margin-left: 30%;
+  margin-top: 100px;
+  
+}
+.bg{
+  height:100vh;
+  width: 100%;
+  display: flex;
+  background-image: url("./images/background.jpg");
+}
+
+
+.login_input{
+  padding: 7px;
+  display: block;
+  border: 1px solid skyblue;
+  width: 300px;
+  margin: 20px;
+}
+
+.submit_btn{
+  margin: 20px;
+  width: 150px;
+  padding: 10px;
+  background-color: skyblue;
+  border: solid 1px;
+  cursor: pointer;
+}
+
+.login1{
+  
+  height: 20em;
+  width: 20em;
+  margin-left: 27%;
+  margin-top: 10%;
+} 
+
+.signup1{
+  
+  height: 20em;
+  width: 20em;
+  margin-left: 27%;
+  margin-top: 10%;
+  
+}
+
+.login_btn{
+  height: 2em;
+  width: 6em;
+}
+
+
+.head_div{
+  display: flex;
+  justify-content: space-evenly;
+  /* background-color: rgba(174, 227, 175, 0.427); */
+}
+
+.search_div{
+  margin-left: auto;
+}
+
+.filename_div{
+  margin-left: auto;
+}
+
+/* input box */
+
+.input_box{
+  height: 30px;
+  border: solid black 1px;
+  background-color: rgba(47, 79, 79, 0.162);
+  font-weight: bold;
+  margin-right: 5px;
+  color: black;
+}
+
+.input_box:hover{
+  background-color: darkslategray ;
+  color: white;
+}
+
+
+.button-9{
+  margin-left: auto;
+  height: 30px;
+  width: 70px;
+  background-color: rgba(47, 79, 79, 0.459);
+}
+.button-9:hover{
+  color: white;
+  background-color: darkslategrey;
+}
+
+.button-9:focus {
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+} 
