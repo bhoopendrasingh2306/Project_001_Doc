@@ -1,9 +1,9 @@
-const io = require("socket.io")({
-  cors: {
-    origin: "http://localhost:3000",
-  },
-});
-
+// const io = require("socket.io")({
+//   cors: {
+//     origin: "http://localhost:3000",
+//   },
+// });
+const io = require('socket.io')({cors: {origin: "*"}});
 function getTopic(event) {
   return `doc_${event._id}`;
 }

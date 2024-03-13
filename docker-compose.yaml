@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mongodb:
+    image:"mongo"
+  volumes:
+      -data:/data/settyl_data
+  server:
+    build: ./server
+    ports:
+      -"80:80"
+    volumes:
+      -logs:/app/logs
+      -./server:/app
+      -/app/node_modules
+    depends_on:
+      - mongodb
+
+
+  clint:
+    build: ./clint
+    ports:
+      -"3000:3000"
+    volumes:
+    depends_on:
+      - server
+volumes:
+  data:
+  logs:

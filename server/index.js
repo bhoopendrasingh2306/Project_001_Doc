@@ -8,10 +8,15 @@ const UsersModel = require("./models/Users");
 const DocsModel = require("./models/docs");
 const { accessControl } = require("./middleware");
 const socketClient = require("./socket/client");
+const path = require("path");
 
 const app = express();
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+
+
+//to get static files . to connect client folder to server
+app.use(express.static(path.join(__dirname,"../client/build/")));
 
 app.get("/start", (req, res) => {
   res.send("Working");
@@ -101,8 +106,17 @@ app.get("/doc/details/:name", accessControl, (req, res) => {
     .catch((err) => res.status(err.status || 500).send(err));
 });
 
-// server status
+//if none of the above api match then the following api works
 
-app.listen(3002, () => {
+app.use("/",(req,res)=>{
+  res.send("404");
+})
+app.get("*",(req,res)=>{
+  res.sendFile(path.join(__dirname,"../client/build/index.html"));
+});
+
+// server status
+const PORT = process.env.PORT || 3002;
+app.listen(PORT, () => {
   console.log("server is running on: " + "3002");
 });

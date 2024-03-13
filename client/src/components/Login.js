@@ -18,10 +18,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await submitValidation();
-  };
-
-  const submitValidation = async () => {
     try {
       if (await validateUser()) {
         navigate("/doc");
