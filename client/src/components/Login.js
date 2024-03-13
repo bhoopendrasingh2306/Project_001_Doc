@@ -27,9 +27,8 @@ const Login = () => {
       // navigate('/error', {state: {message: err.response.data.message}} )
     }
   };
-  const PORT=3000;
   async function validateUser() {
-    const url = `http://localhost:${PORT}/login`; //path for connection to backend' login function
+    const url = `https://project-001-doc.onrender.com/login`; //path for connection to backend' login function
 
     const data = await axios.post(url, { username, password });
     const user = data && data.data;
