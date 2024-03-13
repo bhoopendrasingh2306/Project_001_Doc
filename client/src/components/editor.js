@@ -5,7 +5,7 @@ import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
-const socket = io("http://localhost:3001");
+const socket = io('http://localhost:3000');
 
 function MyComponent() {
   const [value, setValue] = useState("");
@@ -37,10 +37,10 @@ function MyComponent() {
   function getTopic(event) {
     return `doc_${event._id}`;
   }
-
+  const PORT=3000;
   async function getDoc() {
     try {
-      const url = `http://localhost:3002/doc/details/${name}`;
+      const url = `http://localhost:${PORT}/doc/details/${name}`;
 
       const data = await axios.get(url, {
         headers: { token: localStorage.getItem("token") },
@@ -81,7 +81,7 @@ function MyComponent() {
 
   async function saveDoc() {
     try {
-      const url = "http://localhost:3002/doc/add";
+      const url = `http://localhost:${PORT}/doc/add`;
 
       const data = await axios.post(
         url,

@@ -31,8 +31,9 @@ const Signup = () => {
     }
   };
 
+  const PORT=3000;
   async function signUp() {
-    const url = "http://localhost:3002/signup";                                   //path for connection to backend' signup function
+    const url = `http://localhost:${PORT}/signup`;    //path for connection to backend' signup function
 
     const data = await axios.post(url, { username, password });
 

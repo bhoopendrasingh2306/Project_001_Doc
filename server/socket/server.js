@@ -1,8 +1,4 @@
-// const io = require("socket.io")({
-//   cors: {
-//     origin: "http://localhost:3000",
-//   },
-// });
+
 const io = require('socket.io')({cors: {origin: "*"}});
 function getTopic(event) {
   return `doc_${event._id}`;
@@ -22,6 +18,7 @@ const socket = () => {
   });
 
   // socket server PORT
+  
   io.listen(3001, () => {
     console.log("Sockets running on: 3001");
   });

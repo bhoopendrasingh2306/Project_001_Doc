@@ -3,6 +3,8 @@ var jwt = require("jsonwebtoken");
 const cors = require("cors");
 require("./socket/server").socket();
 require("./db/config");
+const dotenv=require("dotenv");
+dotenv.config();
 
 const UsersModel = require("./models/Users");
 const DocsModel = require("./models/docs");
@@ -108,15 +110,12 @@ app.get("/doc/details/:name", accessControl, (req, res) => {
 
 //if none of the above api match then the following api works
 
-app.use("/",(req,res)=>{
-  res.send("404");
-})
 app.get("*",(req,res)=>{
   res.sendFile(path.join(__dirname,"../client/build/index.html"));
 });
 
 // server status
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
-  console.log("server is running on: " + "3002");
+  console.log(`server is running on: ${PORT}`);
 });
