@@ -5,7 +5,9 @@ import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
-const socket = io('http://localhost:3500');
+
+const PORT = process.env.PORT || 4000;
+const socket = io(`http://localhost:${PORT}`);
 
 function MyComponent() {
   const [value, setValue] = useState("");
@@ -37,7 +39,7 @@ function MyComponent() {
   function getTopic(event) {
     return `doc_${event._id}`;
   }
-  const PORT= process.env.PORT||4000;
+  // const PORT= process.env.PORT||4000;
   async function getDoc() {
     try {
       const url = `http://localhost:${PORT}/doc/details/${name}`;
