@@ -19,8 +19,8 @@ const socket = () => {
 
   // socket server PORT
   
-  io.listen(3001, () => {
-    console.log("Sockets running on: 3001");
+  io.listen(3500, () => {
+    console.log("Sockets running on: 3500");
   });
 };
 

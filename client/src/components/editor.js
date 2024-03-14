@@ -5,7 +5,7 @@ import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
-const socket = io('http://localhost:3000');
+const socket = io('http://localhost:3500');
 
 function MyComponent() {
   const [value, setValue] = useState("");
@@ -37,7 +37,7 @@ function MyComponent() {
   function getTopic(event) {
     return `doc_${event._id}`;
   }
-  const PORT=3000;
+  const PORT= process.env.PORT||4000;
   async function getDoc() {
     try {
       const url = `http://localhost:${PORT}/doc/details/${name}`;
@@ -117,7 +117,7 @@ function MyComponent() {
               onChange={(e) => setFilename(e.target.value)}
               placeholder="enter file name"
               readOnly={name ? true : false}
-              style={{ borderRadius: "16px", "padding-left": "20px" }}
+              style={{ borderRadius: "16px", "paddingLeft": "20px" }}
             ></input>
             <button type="submit" className="button-9" onClick={save}>
               Save
@@ -133,7 +133,7 @@ function MyComponent() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="search file name"
-              style={{ borderRadius: "16px", "padding-left": "20px" }}
+              style={{ borderRadius: "16px", "paddingLeft": "20px" }}
             ></input>
             <button type="submit" className="button-9" onClick={getDoc}>
               Search

@@ -31,9 +31,9 @@ const Signup = () => {
     }
   };
 
-  const PORT=3000;
+  const PORT= process.env.PORT || 4000;;
   async function signUp() {
-    const url = `https://project-001-doc.onrender.com/signup`;    //path for connection to backend' signup function
+    const url = `http://localhost:${PORT}/signup`;    //path for connection to backend' signup function
 
     const data = await axios.post(url, { username, password });
 

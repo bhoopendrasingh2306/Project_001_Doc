@@ -8,6 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  const PORT = process.env.PORT || 4000;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -28,7 +29,7 @@ const Login = () => {
     }
   };
   async function validateUser() {
-    const url = `https://project-001-doc.onrender.com/login`; //path for connection to backend' login function
+    const url = `http://localhost:${PORT}/login`; //path for connection to backend' login function
 
     const data = await axios.post(url, { username, password });
     const user = data && data.data;
