@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
 const PORT = process.env.PORT || 4000;
-const socket = io(`http://localhost:${PORT}`);
+const socket = io(`https://project-001-doc.onrender.com`);
 
 function MyComponent() {
   const [value, setValue] = useState("");
@@ -42,7 +42,7 @@ function MyComponent() {
   // const PORT= process.env.PORT||4000;
   async function getDoc() {
     try {
-      const url = `http://localhost:${PORT}/doc/details/${name}`;
+      const url = `https://project-001-doc.onrender.com/doc/details/${name}`;
 
       const data = await axios.get(url, {
         headers: { token: localStorage.getItem("token") },
@@ -83,7 +83,7 @@ function MyComponent() {
 
   async function saveDoc() {
     try {
-      const url = `http://localhost:${PORT}/doc/add`;
+      const url = `https://project-001-doc.onrender.com/doc/add`;
 
       const data = await axios.post(
         url,
